@@ -15,9 +15,14 @@ Including another URLconf
 """
 from django.contrib import admin
 from django.urls import path
-
-# TODO: настройте роутер и подключите `ProjectViewSet` и `MeasurementViewSet`
+from measurements.views import SensorsView, SensorUpdateView, SensorAPIDetailView, MeasurementView, MeasurementDetailView
 
 urlpatterns = [
     path('admin/', admin.site.urls),
+    path('sensors/', SensorsView.as_view()),
+    path('sensordetail/<int:pk>/', SensorAPIDetailView.as_view()),
+    path('sensorupdate/<int:pk>/', SensorUpdateView.as_view()),
+    path('measurement/<pk>', MeasurementView.as_view()),
+    path('measurementdetail/', MeasurementDetailView.as_view())
+
 ]
