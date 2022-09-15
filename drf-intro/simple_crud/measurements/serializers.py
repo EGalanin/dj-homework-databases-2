@@ -16,7 +16,7 @@ class MeasurementSerializer(serializers.ModelSerializer):
 
 
 class SensorDetailSerializer(serializers.ModelSerializer):
-    measurements = MeasurementSerializer(read_only=True, many=True)
+    measurements = MeasurementSerializer(Sensor.measurements, read_only=True, many=True)
 
     class Meta:
         model = Sensor

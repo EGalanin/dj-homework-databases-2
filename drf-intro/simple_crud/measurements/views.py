@@ -1,5 +1,6 @@
 from rest_framework.decorators import api_view
-from rest_framework.generics import ListCreateAPIView, RetrieveUpdateDestroyAPIView, ListAPIView, UpdateAPIView
+from rest_framework.generics import ListCreateAPIView, RetrieveUpdateDestroyAPIView, ListAPIView, UpdateAPIView, \
+    RetrieveAPIView
 from rest_framework.viewsets import ModelViewSet
 from rest_framework.response import Response
 from .serializers import *
@@ -7,7 +8,7 @@ from .serializers import *
 
 class SensorsView(ListAPIView):
     queryset = Sensor.objects.all()
-    serializer_class = SensorDetailSerializer
+    serializer_class = SensorSerializer
 
 
 class SensorUpdateView(UpdateAPIView):
@@ -15,7 +16,7 @@ class SensorUpdateView(UpdateAPIView):
     serializer_class = SensorSerializer
 
 
-class SensorAPIDetailView(RetrieveUpdateDestroyAPIView):
+class SensorDetailView(RetrieveAPIView):
     queryset = Sensor.objects.all()
     serializer_class = SensorDetailSerializer
 
